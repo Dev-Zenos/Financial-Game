@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://deun1rxns85c0"]
+
+[ext_resource type="Texture2D" uid="uid://dlskafg7mwyrc" path="res://Backdrop.jpg" id="1_g2l6d"]
+[ext_resource type="Script" path="res://scripts/CheckServer.gd" id="2_cslks"]
+[ext_resource type="Script" path="res://scripts/StartingScreen.gd" id="2_esvcq"]
+[ext_resource type="PackedScene" uid="uid://caskgv8pp1whv" path="res://scenes/loading_spinner.tscn" id="4_jjwx2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a70sj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_g2l6d")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Loading Screen" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 1)
+scale = Vector2(0.653809, 0.653809)
+sprite_frames = SubResource("SpriteFrames_a70sj")
+animation = &"new_animation"
+script = ExtResource("2_esvcq")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+timeout = 750.0
+script = ExtResource("2_cslks")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Loading Spinner" parent="." instance=ExtResource("4_jjwx2")]
+position = Vector2(0, 1)
+scale = Vector2(0.75, 0.75)

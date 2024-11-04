@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://cw6022sycjp6y"]
+
+[ext_resource type="Texture2D" uid="uid://bvn7v4ju4a1sa" path="res://Start Screen Pt1.jpg" id="1_ookxe"]
+[ext_resource type="Script" path="res://scripts/Learning Mode.gd" id="2_15r28"]
+[ext_resource type="Texture2D" uid="uid://mki8bnu6um1t" path="res://Start Screen pt2.jpg" id="2_80a73"]
+[ext_resource type="Texture2D" uid="uid://d0q0c731rvy0n" path="res://label1.png" id="3_7nydc"]
+[ext_resource type="Texture2D" uid="uid://crgh66esoix5v" path="res://label2.png" id="4_4idp6"]
+[ext_resource type="Script" path="res://scripts/Button2.gd" id="4_cg5uo"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(307, 324.25)
+scale = Vector2(0.704937, 0.632324)
+texture = ExtResource("1_ookxe")
+
+[node name="Button" type="Button" parent="Sprite2D"]
+show_behind_parent = true
+visibility_layer = 2
+offset_left = -437.0
+offset_top = -554.0
+offset_right = 426.0
+offset_bottom = 573.0
+script = ExtResource("2_15r28")
+
+[node name="Label1" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(325, 84)
+scale = Vector2(0.590044, 0.634082)
+texture = ExtResource("3_7nydc")
+
+[node name="Label2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(894, 84)
+scale = Vector2(0.590044, 0.634082)
+texture = ExtResource("4_4idp6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(882.766, 324.856)
+scale = Vector2(0.590044, 0.634082)
+texture = ExtResource("2_80a73")
+
+[node name="Button" type="Button" parent="Sprite2D2"]
+show_behind_parent = true
+offset_left = -444.0
+offset_top = -544.0
+offset_right = 475.0
+offset_bottom = 566.0
+script = ExtResource("4_cg5uo")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="Sprite2D/Button" to="Sprite2D/Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite2D/Button" to="Sprite2D/Button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Sprite2D/Button" to="Sprite2D/Button" method="_on_pressed"]
+[connection signal="mouse_entered" from="Sprite2D2/Button" to="Sprite2D2/Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite2D2/Button" to="Sprite2D2/Button" method="_on_mouse_exited"]
