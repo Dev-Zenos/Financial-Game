@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://deun1rxns85c0"]
+[gd_scene load_steps=7 format=3 uid="uid://deun1rxns85c0"]
 
 [ext_resource type="Texture2D" uid="uid://dlskafg7mwyrc" path="res://Backdrop.jpg" id="1_g2l6d"]
 [ext_resource type="Script" path="res://scripts/CheckServer.gd" id="2_cslks"]
 [ext_resource type="Script" path="res://scripts/StartingScreen.gd" id="2_esvcq"]
 [ext_resource type="PackedScene" uid="uid://caskgv8pp1whv" path="res://scenes/loading_spinner.tscn" id="4_jjwx2"]
+[ext_resource type="PackedScene" uid="uid://c3q032ny1do6f" path="res://scenes/canvas_layer.tscn" id="5_e60xo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a70sj"]
 animations = [{
@@ -34,3 +35,8 @@ script = ExtResource("2_cslks")
 [node name="Loading Spinner" parent="." instance=ExtResource("4_jjwx2")]
 position = Vector2(0, 1)
 scale = Vector2(0.75, 0.75)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("5_e60xo")]
+visible = false
+
+[connection signal="transitioned" from="CanvasLayer" to="HTTPRequest" method="_on_canvas_layer_transitioned"]

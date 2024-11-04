@@ -1,6 +1,7 @@
 extends HTTPRequest
 
 
+const sceneTwo = preload("res://scenes/start_page.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	request_completed.connect(_on_request_completed)
@@ -48,6 +49,11 @@ func _on_request_completed(result, response_code, headers, body):
 		_get_QBank()
 	elif(data["startCode"] == 2):
 		_await_save_QBank(data)
-		get_tree().change_scene_to_file("res://scenes/start_page.tscn");
+		$"../CanvasLayer".visible = true
+		$"../CanvasLayer".transition()
 		
 
+
+
+func _on_canvas_layer_transitioned():
+	get_tree().change_scene_to_packed(sceneTwo)
