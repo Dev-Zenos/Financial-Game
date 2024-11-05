@@ -52,7 +52,7 @@ func _on_request_completed(result, response_code, headers, body):
 		$"../CanvasLayer".visible = true
 		$"../CanvasLayer".transition()
 		
-
+ 
 
 
 func _on_canvas_layer_transitioned():
