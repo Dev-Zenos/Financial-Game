@@ -13,8 +13,10 @@ func _get_user_data():
 	if FileAccess.file_exists("localStorage.txt"):
 		var save_file = FileAccess.open("localStorage.txt", FileAccess.READ)
 		var json_string = ""
-		json_string += save_file.get_line();
-		userId = json_string
+		while save_file.get_position() < save_file.get_length():
+			json_string += save_file.get_line();
+		var obj = JSON.parse_string(json_string)
+		userId = obj["UniqueID"]
 	request("https://financial-game-backend.onrender.com/fetch_userData?userId=" + userId)
 
 func _get_QBank():
@@ -22,8 +24,13 @@ func _get_QBank():
 	
 
 func _await_save_user_data(obj):
+	var obj2;
+	if(obj["error"]):
+		obj2 = {"UniqueID": obj["UniqueID"]}
+	else:
+		obj2 = {"UniqueID": obj["name"]}
 	var save_file = FileAccess.open("localStorage.txt", FileAccess.WRITE)
-	save_file.store_line((obj["UniqueID"]+"\n")+(JSON.stringify(obj)))
+	save_file.store_line((JSON.stringify(obj2)))
 
 func _await_save_QBank(obj):
 	var save_file = FileAccess.open("QBank.txt", FileAccess.WRITE)
@@ -44,8 +51,8 @@ func _on_request_completed(result, response_code, headers, body):
 		_get_user_data()
 	elif(data["startCode"] == 1):
 		if(data["error"] == true):
-			_await_save_user_data(data)
 			$"../Loading Spinner".get_node("Label").text = "Fetching Question Bank"
+		_await_save_user_data(data)
 		_get_QBank()
 	elif(data["startCode"] == 2):
 		_await_save_QBank(data)

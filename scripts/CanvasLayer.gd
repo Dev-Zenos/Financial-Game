@@ -12,4 +12,4 @@ func _on_animation_player_animation_finished(anim_name):
 		print("Emit signal transitioned")
 		emit_signal("transitioned")
 	if anim_name == "fade_to_normal":
-		print("Finished fading")
+		print("Finished fading skibidi")
