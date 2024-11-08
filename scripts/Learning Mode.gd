@@ -2,6 +2,7 @@ extends Button
 
 
 @onready var sprite = $"../../Label1"
+var scene = preload("res://scenes/panel_selection.tscn")
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,4 +26,4 @@ func _on_mouse_exited():
 
 
 func _on_pressed():
-	print("Bob")
+	get_tree().change_scene_to_packed(scene)
