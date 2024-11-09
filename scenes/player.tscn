@@ -167,7 +167,7 @@ script = ExtResource("1_vhg84")
 sprite_frames = SubResource("SpriteFrames_kxuct")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.969359
+frame_progress = 0.919352
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
