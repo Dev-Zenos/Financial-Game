@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://c0t5fark364mj"]
+
+[ext_resource type="Texture2D" uid="uid://beuosmtx58f0e" path="res://Game Assets/narrator/Narrator1.png" id="1_5m6jm"]
+[ext_resource type="Script" path="res://scripts/narrator1.gd" id="1_bn8yc"]
+[ext_resource type="Texture2D" uid="uid://cdqk4474k7ooq" path="res://Game Assets/narrator/Narrator2.png" id="3_3t56q"]
+[ext_resource type="FontFile" uid="uid://cckoau3dy7sf4" path="res://Game Assets/narrator/PixelOperator8-Bold.ttf" id="3_7nxgy"]
+[ext_resource type="AudioStream" uid="uid://cj7csrdvg6rpo" path="res://Game Assets/narrator/keyboard-chspsil-146640.mp3" id="3_pyvsb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nmk4"]
+atlas = ExtResource("1_5m6jm")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk5tt"]
+atlas = ExtResource("3_3t56q")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tgpt0"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nmk4")
+}],
+"loop": true,
+"name": &"narrator1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk5tt")
+}],
+"loop": true,
+"name": &"narrator2",
+"speed": 5.0
+}]
+
+[node name="Narrator" type="Node2D"]
+script = ExtResource("1_bn8yc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-60.5, -60.5)
+scale = Vector2(0.881836, 0.881836)
+sprite_frames = SubResource("SpriteFrames_tgpt0")
+animation = &"narrator1"
+
+[node name="Label" type="Label" parent="."]
+offset_left = -436.0
+offset_top = -232.0
+offset_right = 176.0
+offset_bottom = -57.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_7nxgy")
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_pyvsb")
+volume_db = 5.0

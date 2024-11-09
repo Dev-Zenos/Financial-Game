@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cj7csrdvg6rpo"
+path="res://.godot/imported/keyboard-chspsil-146640.mp3-ebe60ad44df84111df721a6203812e8c.mp3str"
+
+[deps]
+
+source_file="res://Game Assets/narrator/keyboard-chspsil-146640.mp3"
+dest_files=["res://.godot/imported/keyboard-chspsil-146640.mp3-ebe60ad44df84111df721a6203812e8c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
