@@ -312,5 +312,6 @@ layer_1/tile_data = PackedInt32Array(131077, 589824, 0, 131080, 917504, 5, 6, 10
 position = Vector2(25, -43)
 
 [node name="narrator" parent="CharacterBody2D" instance=ExtResource("4_s8fer")]
+texture_filter = 1
 position = Vector2(79, 51)
 scale = Vector2(0.253052, 0.253052)
