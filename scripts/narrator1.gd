@@ -44,3 +44,12 @@ func end():
 	animatedSprite.visible = false
 	animatedSprite.play("empty")
 	character_body_2d.locked = false;
+	
+func say(arr, anim):
+	msgs = arr
+	visible2 = true;
+	animatedSprite.visible = true
+	animatedSprite.play(anim)
+	character_body_2d.locked = true;
+
+	

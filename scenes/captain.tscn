@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6yx0ydayhiqp"]
+[gd_scene load_steps=4 format=3 uid="uid://c6yx0ydayhiqp"]
 
 [ext_resource type="Texture2D" uid="uid://cnjc7rywq2f78" path="res://Game Assets/Monochrome Pirates by Kenney/Default/Tiles/tile_0127.png" id="1_2wguc"]
+[ext_resource type="Script" path="res://scripts/captain.gd" id="1_mahv6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3v4af"]
 
 [node name="Captain" type="Node2D"]
+script = ExtResource("1_mahv6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2wguc")
@@ -13,3 +15,6 @@ texture = ExtResource("1_2wguc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_3v4af")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
