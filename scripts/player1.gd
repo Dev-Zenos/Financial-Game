@@ -14,6 +14,7 @@ var locked = false
 
 func _physics_process(delta):
 	if(locked):
+		animated_sprite_2d.play("idle")
 		return
 	# Add the gravity.
 	if not is_on_floor() and gravityOn:

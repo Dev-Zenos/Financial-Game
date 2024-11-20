@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/boat.gd" id="1_s6fvy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1eib5"]
-radius = 56.0357
+radius = 44.0114
 
 [node name="boat" type="Node2D"]
 script = ExtResource("1_s6fvy")
@@ -20,3 +20,4 @@ shape = SubResource("CircleShape2D_1eib5")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
