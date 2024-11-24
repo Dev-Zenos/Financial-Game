@@ -19,7 +19,7 @@ func _on_area_2d_body_entered(body):
 		return
 	print("player")
 	if(!done):
-		narrator.say(arr, "narrator1")
+		narrator.say(arr, "narrator3")
 		done = true
 		$"Exclamation Mark".visible = false;
 
