@@ -14,6 +14,8 @@ var visible2 = true;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animatedSprite.play("narrator1")
+	
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

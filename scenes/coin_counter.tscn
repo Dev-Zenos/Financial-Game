@@ -1,0 +1,123 @@
+[gd_scene load_steps=17 format=3 uid="uid://bs0ceicyxh6ov"]
+
+[ext_resource type="Texture2D" uid="uid://cu5fc8jrlfpcb" path="res://Game Assets/coin.png" id="1_f0fpm"]
+[ext_resource type="Texture2D" uid="uid://ckjooaqina7j0" path="res://Game Assets/board.png" id="2_kfjll"]
+[ext_resource type="FontFile" uid="uid://cckoau3dy7sf4" path="res://Game Assets/narrator/PixelOperator8-Bold.ttf" id="3_rkhp5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5yfk"]
+atlas = ExtResource("1_f0fpm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_851if"]
+atlas = ExtResource("1_f0fpm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5m86"]
+atlas = ExtResource("1_f0fpm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ykvv"]
+atlas = ExtResource("1_f0fpm")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6xrm"]
+atlas = ExtResource("1_f0fpm")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bfld"]
+atlas = ExtResource("1_f0fpm")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5lchm"]
+atlas = ExtResource("1_f0fpm")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hn4lm"]
+atlas = ExtResource("1_f0fpm")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb17x"]
+atlas = ExtResource("1_f0fpm")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ja74"]
+atlas = ExtResource("1_f0fpm")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6y6m"]
+atlas = ExtResource("1_f0fpm")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ww2s"]
+atlas = ExtResource("1_f0fpm")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ldpl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5yfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_851if")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5m86")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ykvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6xrm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bfld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5lchm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hn4lm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rb17x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ja74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6y6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ww2s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="CoinCounter" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_8ldpl")
+autoplay = "default"
+frame_progress = 0.0143129
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(19.2026, -2.625)
+scale = Vector2(0.206522, 0.206522)
+texture = ExtResource("2_kfjll")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -3.0
+offset_top = -5.0
+offset_right = 52.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_rkhp5")
+theme_override_font_sizes/font_size = 8
+text = "1000"
+horizontal_alignment = 1
+autowrap_mode = 3

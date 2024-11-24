@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://oh1oqmeju3"]
+[gd_scene load_steps=14 format=3 uid="uid://oh1oqmeju3"]
 
 [ext_resource type="Texture2D" uid="uid://cvjxy2itsgvhp" path="res://Game Assets/Monochrome Pirates by Kenney/Default/Tilemap/tilemap_packed.png" id="1_aejnn"]
 [ext_resource type="Texture2D" uid="uid://bdnwyop6rg67k" path="res://Game Assets/Monochrome Pirates by Kenney/tile2.jpg" id="2_lu1xg"]
@@ -7,7 +7,9 @@
 [ext_resource type="FontFile" uid="uid://cckoau3dy7sf4" path="res://Game Assets/narrator/PixelOperator8-Bold.ttf" id="5_4c5er"]
 [ext_resource type="PackedScene" uid="uid://bfx60trllwb20" path="res://scenes/exclamation_mark.tscn" id="5_ed6gk"]
 [ext_resource type="PackedScene" uid="uid://c6yx0ydayhiqp" path="res://scenes/captain.tscn" id="5_tw70m"]
+[ext_resource type="PackedScene" uid="uid://bs0ceicyxh6ov" path="res://scenes/coin_counter.tscn" id="6_byim5"]
 [ext_resource type="PackedScene" uid="uid://bfhjdf823k2lm" path="res://scenes/boat.tscn" id="8_ma117"]
+[ext_resource type="PackedScene" uid="uid://dhi2ew4dnrmue" path="res://scenes/npc_2.tscn" id="10_nyx66"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o32a1"]
 texture = ExtResource("1_aejnn")
@@ -332,6 +334,10 @@ theme_override_font_sizes/font_size = 8
 horizontal_alignment = 1
 autowrap_mode = 3
 
+[node name="CoinCounter" parent="Player" instance=ExtResource("6_byim5")]
+visible = false
+position = Vector2(92, -67)
+
 [node name="Captain" parent="." instance=ExtResource("5_tw70m")]
 position = Vector2(8, -9)
 
@@ -340,3 +346,6 @@ position = Vector2(2.08165e-12, -17)
 
 [node name="boat" parent="." instance=ExtResource("8_ma117")]
 position = Vector2(-40, -104)
+
+[node name="npc2" parent="." instance=ExtResource("10_nyx66")]
+position = Vector2(136, -88)
