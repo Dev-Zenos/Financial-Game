@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://oh1oqmeju3"]
+[gd_scene load_steps=15 format=3 uid="uid://oh1oqmeju3"]
 
 [ext_resource type="Texture2D" uid="uid://cvjxy2itsgvhp" path="res://Game Assets/Monochrome Pirates by Kenney/Default/Tilemap/tilemap_packed.png" id="1_aejnn"]
 [ext_resource type="Texture2D" uid="uid://bdnwyop6rg67k" path="res://Game Assets/Monochrome Pirates by Kenney/tile2.jpg" id="2_lu1xg"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bs0ceicyxh6ov" path="res://scenes/coin_counter.tscn" id="6_byim5"]
 [ext_resource type="PackedScene" uid="uid://bfhjdf823k2lm" path="res://scenes/boat.tscn" id="8_ma117"]
 [ext_resource type="PackedScene" uid="uid://dhi2ew4dnrmue" path="res://scenes/npc_2.tscn" id="10_nyx66"]
+[ext_resource type="PackedScene" uid="uid://b4f8mmk0glaks" path="res://scenes/npc_3.tscn" id="11_2q63n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o32a1"]
 texture = ExtResource("1_aejnn")
@@ -320,7 +321,7 @@ position = Vector2(37, -40)
 
 [node name="narrator" parent="Player" instance=ExtResource("4_s8fer")]
 texture_filter = 1
-position = Vector2(79, 51)
+position = Vector2(79, 57)
 scale = Vector2(0.253052, 0.253052)
 
 [node name="Label" type="Label" parent="Player"]
@@ -335,7 +336,6 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="CoinCounter" parent="Player" instance=ExtResource("6_byim5")]
-visible = false
 position = Vector2(92, -67)
 
 [node name="Captain" parent="." instance=ExtResource("5_tw70m")]
@@ -349,3 +349,6 @@ position = Vector2(-40, -104)
 
 [node name="npc2" parent="." instance=ExtResource("10_nyx66")]
 position = Vector2(136, -88)
+
+[node name="npc_3" parent="." instance=ExtResource("11_2q63n")]
+position = Vector2(-248, -120)
