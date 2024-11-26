@@ -2,6 +2,7 @@ extends Node2D
 
 var done = false
 @onready var narrator = $"../Player/narrator"
+@onready var sceneTwo = preload("res://scenes/questions_page.tscn")
 var arr = ["Ahoy there, sailor! Ye’ve found me treasure, but it ain’t free for the takin’. Ye’ll need to prove yer worth first.", "Answer me questions—get ‘em right, and the gold is yours. Fail, and ye’ll walk away empty-handed!", "Ready to test yer wits? Only the sharpest minds earn the spoils of the sea. Let’s see what ye’ve got!"]
 
 # Called when the node enters the scene tree for the first time.
@@ -22,4 +23,7 @@ func _on_area_2d_body_entered(body):
 		narrator.say(arr, "narrator3")
 		done = true
 		$"Exclamation Mark".visible = false;
+		get_tree().change_scene_to_packed(sceneTwo)
+		
+
 

@@ -46,6 +46,7 @@ func end():
 	animatedSprite.visible = false
 	animatedSprite.play("empty")
 	character_body_2d.locked = false;
+	emit_signal("narrator_done")
 	
 func say(arr, anim):
 	msgs = arr
