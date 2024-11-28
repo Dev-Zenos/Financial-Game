@@ -9,6 +9,8 @@ var timer = 0;
 var counter = 0;
 const DELAY = 20
 var visible2 = true;
+var sprite = "narrator1"
+signal narrator_done(done);
 @onready var animatedSprite = $AnimatedSprite2D
 
 # Called when the node enters the scene tree for the first time.
@@ -43,16 +45,17 @@ func end():
 	timer = 0;
 	counter = 0;
 	clicks = 0;
+	emit_signal("narrator_done", sprite)
 	animatedSprite.visible = false
 	animatedSprite.play("empty")
 	character_body_2d.locked = false;
-	emit_signal("narrator_done")
 	
 func say(arr, anim):
 	msgs = arr
 	visible2 = true;
 	animatedSprite.visible = true
 	animatedSprite.play(anim)
+	sprite = anim
 	character_body_2d.locked = true;
 
 	

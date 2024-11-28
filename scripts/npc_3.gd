@@ -7,8 +7,7 @@ var arr = ["Ahoy there, sailor! Ye’ve found me treasure, but it ain’t free f
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -23,7 +22,22 @@ func _on_area_2d_body_entered(body):
 		narrator.say(arr, "narrator3")
 		done = true
 		$"Exclamation Mark".visible = false;
-		get_tree().change_scene_to_packed(sceneTwo)
 		
 
 
+
+
+func _on_narrator_narrator_done(done):
+	if(done != "narrator3"):
+		return;
+	# Instance the scene instead of just changing to it
+	var instance = sceneTwo.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
+	
+	# Set the parameter on the new scene
+	instance.set_parameter("Your parameter value here")
+	
+	# Add the new scene to the tree
+	get_tree().root.add_child(instance)
+	
+	# Optionally, remove the current scene
+	get_tree().current_scene.queue_free()

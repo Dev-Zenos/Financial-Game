@@ -352,3 +352,5 @@ position = Vector2(136, -88)
 
 [node name="npc_3" parent="." instance=ExtResource("11_2q63n")]
 position = Vector2(-248, -120)
+
+[connection signal="narrator_done" from="Player/narrator" to="npc_3" method="_on_narrator_narrator_done"]

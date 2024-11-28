@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4f8mmk0glaks"]
+[gd_scene load_steps=6 format=3 uid="uid://b4f8mmk0glaks"]
 
 [ext_resource type="Script" path="res://scripts/npc_3.gd" id="1_rlbga"]
 [ext_resource type="Texture2D" uid="uid://dn8txlt8rfjkm" path="res://Game Assets/Monochrome Pirates by Kenney/Default/Tiles/tile_0126.png" id="2_24u15"]
 [ext_resource type="PackedScene" uid="uid://bfx60trllwb20" path="res://scenes/exclamation_mark.tscn" id="3_6x6y8"]
+[ext_resource type="PackedScene" uid="uid://bnluu3gl2lhf7" path="res://scenes/questions_page.tscn" id="4_rxjle"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5mo8"]
 
@@ -19,5 +20,8 @@ shape = SubResource("RectangleShape2D_d5mo8")
 
 [node name="Exclamation Mark" parent="." instance=ExtResource("3_6x6y8")]
 position = Vector2(2.08165e-12, -16)
+
+[node name="QuestionsPage" parent="." instance=ExtResource("4_rxjle")]
+visible = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
