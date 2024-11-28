@@ -12,6 +12,6 @@ func _process(delta):
 
 
 func _on_button_4_pressed():
-	var ans = $"..".checkAnswer($Button/Label.text)
+	var ans = $"..".checkAnswer($Button4/Label.text)
 	print(ans)
 	$AnimationPlayer.play("shake")
