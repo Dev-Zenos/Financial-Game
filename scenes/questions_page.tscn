@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bnluu3gl2lhf7"]
+[gd_scene load_steps=17 format=3 uid="uid://bnluu3gl2lhf7"]
 
 [ext_resource type="Script" path="res://scripts/QuestionsPage.gd" id="1_snjsf"]
 [ext_resource type="Texture2D" uid="uid://b7gcvw0fbr3o0" path="res://Game Assets/background1.jpeg" id="2_klxch"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://cckoau3dy7sf4" path="res://Game Assets/narrator/PixelOperator8-Bold.ttf" id="3_usn78"]
 [ext_resource type="Texture2D" uid="uid://cudi4cshok6w3" path="res://Game Assets/stopwatch.png" id="4_rraej"]
 [ext_resource type="Texture2D" uid="uid://dy7nxb1nmlggn" path="res://Game Assets/button.png" id="4_yi1av"]
+[ext_resource type="Texture2D" uid="uid://dhuarquwtdsxf" path="res://Game Assets/tickMark2.png" id="6_o27lp"]
 [ext_resource type="Script" path="res://scripts/QButton2.gd" id="6_v068o"]
 [ext_resource type="Script" path="res://scripts/QButton3.gd" id="7_53w2g"]
 [ext_resource type="Script" path="res://scripts/QButton4.gd" id="8_lpvs4"]
@@ -46,6 +47,33 @@ _data = {
 "RESET": SubResource("Animation_r564r"),
 "shake": SubResource("Animation_83cbx")
 }
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ed00t"]
+atlas = ExtResource("6_o27lp")
+region = Rect2(0, 0, 317, 393)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yb38"]
+atlas = ExtResource("6_o27lp")
+region = Rect2(317, 0, 317, 393)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w3imd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ed00t")
+}],
+"loop": true,
+"name": &"correct",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4yb38")
+}],
+"loop": true,
+"name": &"wrong",
+"speed": 5.0
+}]
 
 [node name="QuestionsPage" type="Node2D"]
 position = Vector2(144, 93)
@@ -92,6 +120,12 @@ libraries = {
 "": SubResource("AnimationLibrary_qqmyv")
 }
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Button1"]
+position = Vector2(198, 260)
+scale = Vector2(0.278391, 0.278476)
+sprite_frames = SubResource("SpriteFrames_w3imd")
+animation = &"correct"
+
 [node name="Button2" type="Node2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("6_v068o")
@@ -128,6 +162,12 @@ libraries = {
 "": SubResource("AnimationLibrary_qqmyv")
 }
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Button2"]
+position = Vector2(926, 260)
+scale = Vector2(0.278391, 0.278476)
+sprite_frames = SubResource("SpriteFrames_w3imd")
+animation = &"correct"
+
 [node name="Button3" type="Node2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("7_53w2g")
@@ -163,6 +203,12 @@ libraries = {
 "": SubResource("AnimationLibrary_qqmyv")
 }
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Button3"]
+position = Vector2(198, 408)
+scale = Vector2(0.278391, 0.278476)
+sprite_frames = SubResource("SpriteFrames_w3imd")
+animation = &"correct"
+
 [node name="Button4" type="Node2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("8_lpvs4")
@@ -197,6 +243,12 @@ texture = ExtResource("4_yi1av")
 libraries = {
 "": SubResource("AnimationLibrary_qqmyv")
 }
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Button4"]
+position = Vector2(926, 408)
+scale = Vector2(0.278391, 0.278476)
+sprite_frames = SubResource("SpriteFrames_w3imd")
+animation = &"correct"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 60.0
