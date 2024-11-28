@@ -1,9 +1,51 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnluu3gl2lhf7"]
+[gd_scene load_steps=13 format=3 uid="uid://bnluu3gl2lhf7"]
 
 [ext_resource type="Script" path="res://scripts/QuestionsPage.gd" id="1_snjsf"]
 [ext_resource type="Texture2D" uid="uid://b7gcvw0fbr3o0" path="res://Game Assets/background1.jpeg" id="2_klxch"]
+[ext_resource type="Script" path="res://scripts/QButton1.gd" id="3_lhbm0"]
 [ext_resource type="FontFile" uid="uid://cckoau3dy7sf4" path="res://Game Assets/narrator/PixelOperator8-Bold.ttf" id="3_usn78"]
 [ext_resource type="Texture2D" uid="uid://cudi4cshok6w3" path="res://Game Assets/stopwatch.png" id="4_rraej"]
+[ext_resource type="Texture2D" uid="uid://dy7nxb1nmlggn" path="res://Game Assets/button.png" id="4_yi1av"]
+[ext_resource type="Script" path="res://scripts/QButton2.gd" id="6_v068o"]
+[ext_resource type="Script" path="res://scripts/QButton3.gd" id="7_53w2g"]
+[ext_resource type="Script" path="res://scripts/QButton4.gd" id="8_lpvs4"]
+
+[sub_resource type="Animation" id="Animation_83cbx"]
+resource_name = "shake"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(5, -5), Vector2(-5, 5), Vector2(-5, 5), Vector2(2.08165e-12, 2.08165e-12)]
+}
+
+[sub_resource type="Animation" id="Animation_r564r"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(5, -5), Vector2(-5, 5), Vector2(5, 5), Vector2(2.08165e-12, 2.08165e-12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qqmyv"]
+_data = {
+"RESET": SubResource("Animation_r564r"),
+"shake": SubResource("Animation_83cbx")
+}
 
 [node name="QuestionsPage" type="Node2D"]
 position = Vector2(144, 93)
@@ -15,13 +57,18 @@ position = Vector2(432, 232)
 scale = Vector2(4.0493, 3.62921)
 texture = ExtResource("2_klxch")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button1" type="Node2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+script = ExtResource("3_lhbm0")
+
+[node name="Button" type="Button" parent="Button1"]
 offset_left = -79.0
 offset_top = 245.0
 offset_right = 226.0
 offset_bottom = 361.0
 
-[node name="Label" type="Label" parent="Button"]
+[node name="Label" type="Label" parent="Button1/Button"]
+z_index = 1
 layout_mode = 0
 offset_left = 5.0
 offset_top = 4.0
@@ -35,14 +82,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Button2" type="Button" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Button1/Button"]
+position = Vector2(159, 58)
+scale = Vector2(2.48592, 1.48243)
+texture = ExtResource("4_yi1av")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Button1"]
+libraries = {
+"": SubResource("AnimationLibrary_qqmyv")
+}
+
+[node name="Button2" type="Node2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+script = ExtResource("6_v068o")
+
+[node name="Button2" type="Button" parent="Button2"]
 offset_left = 650.0
 offset_top = 246.0
 offset_right = 955.0
 offset_bottom = 362.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Button2"]
+[node name="Label" type="Label" parent="Button2/Button2"]
+z_index = 1
 layout_mode = 0
 offset_left = 5.0
 offset_top = 4.0
@@ -56,13 +118,28 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Button3" type="Button" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Button2/Button2"]
+position = Vector2(157, 55)
+scale = Vector2(2.48592, 1.48243)
+texture = ExtResource("4_yi1av")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Button2"]
+libraries = {
+"": SubResource("AnimationLibrary_qqmyv")
+}
+
+[node name="Button3" type="Node2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+script = ExtResource("7_53w2g")
+
+[node name="Button3" type="Button" parent="Button3"]
 offset_left = -79.0
 offset_top = 399.0
 offset_right = 226.0
 offset_bottom = 515.0
 
-[node name="Label" type="Label" parent="Button3"]
+[node name="Label" type="Label" parent="Button3/Button3"]
+z_index = 1
 layout_mode = 0
 offset_left = 5.0
 offset_top = 4.0
@@ -76,13 +153,28 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Button4" type="Button" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="Button3/Button3"]
+position = Vector2(150.5, 51.9331)
+scale = Vector2(2.48592, 1.48243)
+texture = ExtResource("4_yi1av")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Button3"]
+libraries = {
+"": SubResource("AnimationLibrary_qqmyv")
+}
+
+[node name="Button4" type="Node2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+script = ExtResource("8_lpvs4")
+
+[node name="Button4" type="Button" parent="Button4"]
 offset_left = 650.0
 offset_top = 407.0
 offset_right = 955.0
 offset_bottom = 523.0
 
-[node name="Label" type="Label" parent="Button4"]
+[node name="Label" type="Label" parent="Button4/Button4"]
+z_index = 1
 layout_mode = 0
 offset_left = 5.0
 offset_top = 4.0
@@ -95,6 +187,16 @@ text = "BoB"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Button4/Button4"]
+position = Vector2(150.5, 51.9331)
+scale = Vector2(2.48592, 1.48243)
+texture = ExtResource("4_yi1av")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Button4"]
+libraries = {
+"": SubResource("AnimationLibrary_qqmyv")
+}
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 60.0
@@ -117,3 +219,8 @@ text = "60.00s"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[connection signal="pressed" from="Button1/Button" to="Button1" method="_on_button_pressed"]
+[connection signal="pressed" from="Button2/Button2" to="Button2" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3/Button3" to="Button3" method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button4/Button4" to="Button4" method="_on_button_4_pressed"]

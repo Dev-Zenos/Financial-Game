@@ -34,10 +34,11 @@ func _on_narrator_narrator_done(done):
 	var instance = sceneTwo.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
 	
 	# Set the parameter on the new scene
-	instance.set_parameter("Your parameter value here")
+	instance.set_parameter("bob1", "bob1", "bob2", "bob3", "bob4", "qiydfsihfdkjfhsdkjfhsdkjfhsdjkfhsdkjfhsdkjfhdskjfhsdkfhdsjkfhsd ?")
 	
 	# Add the new scene to the tree
 	get_tree().root.add_child(instance)
 	
 	# Optionally, remove the current scene
-	get_tree().current_scene.queue_free()
+	var bob = get_tree().current_scene
+	bob.queue_free()
