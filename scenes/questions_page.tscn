@@ -11,6 +11,21 @@
 [ext_resource type="Script" path="res://scripts/QButton3.gd" id="7_53w2g"]
 [ext_resource type="Script" path="res://scripts/QButton4.gd" id="8_lpvs4"]
 
+[sub_resource type="Animation" id="Animation_r564r"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(5, -5), Vector2(-5, 5), Vector2(5, 5), Vector2(2.08165e-12, 2.08165e-12)]
+}
+
 [sub_resource type="Animation" id="Animation_83cbx"]
 resource_name = "shake"
 length = 0.2
@@ -25,21 +40,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(5, -5), Vector2(-5, 5), Vector2(-5, 5), Vector2(2.08165e-12, 2.08165e-12)]
-}
-
-[sub_resource type="Animation" id="Animation_r564r"]
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(5, -5), Vector2(-5, 5), Vector2(5, 5), Vector2(2.08165e-12, 2.08165e-12)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qqmyv"]
@@ -104,7 +104,7 @@ offset_right = 301.0
 offset_bottom = 111.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_usn78")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "BoB"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -146,7 +146,7 @@ offset_right = 301.0
 offset_bottom = 111.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_usn78")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "BoB"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -187,7 +187,7 @@ offset_right = 301.0
 offset_bottom = 111.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_usn78")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "BoB"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -228,7 +228,7 @@ offset_right = 301.0
 offset_bottom = 111.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_usn78")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 16
 text = "BoB"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -264,12 +264,19 @@ offset_left = 589.875
 offset_top = 23.25
 offset_right = 736.875
 offset_bottom = 76.25
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_usn78")
 theme_override_font_sizes/font_size = 24
 text = "60.00s"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="."]
+offset_right = 904.0
+offset_bottom = 192.0
+theme_override_fonts/font = ExtResource("3_usn78")
+theme_override_font_sizes/font_size = 32
+text = "Bob"
 autowrap_mode = 3
 
 [connection signal="pressed" from="Button1/Button" to="Button1" method="_on_button_pressed"]

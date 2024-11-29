@@ -12,7 +12,7 @@ func _process(delta):
 
 
 func _on_button_pressed():
-	var ans = $"..".checkAnswer($Button/Label.text)
+	var ans = await $"..".checkAnswer($Button/Label.text)
 	print(ans)
 	$AnimatedSprite2D.visible = true;
 	if(ans):

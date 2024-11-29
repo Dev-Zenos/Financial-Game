@@ -1,17 +1,24 @@
 extends Node2D
 
 var parameter
+@onready var finalScene
 
-func set_parameter(value, option1, option2, option3, option4, question):
+func set_parameter(value, option1, option2, option3, option4, question, bob):
 	parameter = value
+	finalScene = bob
 	$Button1/Button/Label.text = option1;
 	$Button2/Button2/Label.text = option2
 	$Button3/Button3/Label.text = option3
 	$Button4/Button4/Label .text = option4
+	$Label.text = question
 	print("Received parameter: ", parameter)
 
 func checkAnswer(ans) -> bool: 
-	return (ans == parameter)
+	var boolean = (ans == parameter)
+	if(boolean):
+		await get_tree().create_timer(5.0).timeout
+		finalScene.remove_instance()
+	return boolean;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

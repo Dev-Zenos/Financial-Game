@@ -25,20 +25,41 @@ func _on_area_2d_body_entered(body):
 		
 
 
-
+var active_instance = null  # To track the instance
 
 func _on_narrator_narrator_done(done):
-	if(done != "narrator3"):
-		return;
-	# Instance the scene instead of just changing to it
-	var instance = sceneTwo.instantiate(PackedScene.GEN_EDIT_STATE_INSTANCE)
-	
-	# Set the parameter on the new scene
-	instance.set_parameter("bob1", "bob1", "bob2", "bob3", "bob4", "qiydfsihfdkjfhsdkjfhsdkjfhsdjkfhsdkjfhsdkjfhdskjfhsdkfhdsjkfhsd ?")
-	
-	# Add the new scene to the tree
+	if done != "narrator3":
+		return
+
+	# Instance the new scene
+	var instance = sceneTwo.instantiate()
+	active_instance = instance  # Keep track of the instance
+
+	# Set parameters for the instance if needed
+	instance.set_parameter(
+		"To be ready for emergencies or big costs",
+		"So you can show off",
+		"To be ready for emergencies or big costs",
+		"Because spending is boring",
+		"Numbers Go Up! -> Good",
+		"Why is it smart to save some money?",
+		self  # Reference to the current scene for callback if needed
+	)
+
+	# Add the instance as a child to the root or the current scene
+
+	# Optionally hide the current scene instead of freeing it
+	self.visible = false
+	$"..".visible = false
 	get_tree().root.add_child(instance)
+	instance.visible = true;
 	
-	# Optionally, remove the current scene
-	var bob = get_tree().current_scene
-	bob.queue_free()
+func remove_instance():
+	if active_instance:
+		active_instance.queue_free()  # Free the instance
+		active_instance = null
+		self.visible = true  # Show the original scene again
+	
+
+
+
