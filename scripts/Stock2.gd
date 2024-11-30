@@ -29,13 +29,13 @@ func update_ui():
 	sell_button.disabled = stock_count <= 0
 	buy_button.disabled = false # Adjust based on player inventory
 
-func buy_stock():
+func sell_stock():
 	if stock_count > 0:
 		stock_count -= 1
 		# Deduct player money and add stock
 	update_ui()
 
-func sell_stock():
+func buy_stock():
 	stock_count += 1
 	# Add player money and deduct stock
 	update_ui()
@@ -77,3 +77,11 @@ func _on_timer_timeout():
 	update_graph()
 	update_ui()
 	print("New Stock2 Price: " + str(value))
+
+
+func _on_buy_button_pressed():
+	buy_stock()
+
+
+func _on_sell_button_pressed():
+	sell_stock()

@@ -36,7 +36,7 @@ theme_override_fonts/font = ExtResource("2_rhbcr")
 theme_override_font_sizes/font_size = 16
 text = "Buy"
 
-[node name="Button" type="Button" parent="VBoxContainer/Stock1/Buy"]
+[node name="BuyButton" type="Button" parent="VBoxContainer/Stock1/Buy"]
 layout_mode = 2
 offset_left = 1.0
 offset_top = -1.0
@@ -49,7 +49,7 @@ theme_override_fonts/font = ExtResource("2_rhbcr")
 theme_override_font_sizes/font_size = 16
 text = "Sell"
 
-[node name="Button" type="Button" parent="VBoxContainer/Stock1/Sell"]
+[node name="SellButton" type="Button" parent="VBoxContainer/Stock1/Sell"]
 offset_left = 1.0
 offset_top = -1.0
 offset_right = 57.0
@@ -85,7 +85,7 @@ theme_override_fonts/font = ExtResource("2_rhbcr")
 theme_override_font_sizes/font_size = 16
 text = "Buy"
 
-[node name="Button" type="Button" parent="VBoxContainer/Stock2/Buy"]
+[node name="BuyButton" type="Button" parent="VBoxContainer/Stock2/Buy"]
 layout_mode = 2
 offset_left = 1.0
 offset_top = -1.0
@@ -98,7 +98,7 @@ theme_override_fonts/font = ExtResource("2_rhbcr")
 theme_override_font_sizes/font_size = 16
 text = "Sell"
 
-[node name="Button" type="Button" parent="VBoxContainer/Stock2/Sell"]
+[node name="SellButton" type="Button" parent="VBoxContainer/Stock2/Sell"]
 offset_left = 1.0
 offset_top = -1.0
 offset_right = 57.0
@@ -134,7 +134,7 @@ theme_override_fonts/font = ExtResource("2_rhbcr")
 theme_override_font_sizes/font_size = 16
 text = "Buy"
 
-[node name="Button" type="Button" parent="VBoxContainer/Stock3/Buy"]
+[node name="BuyButton" type="Button" parent="VBoxContainer/Stock3/Buy"]
 layout_mode = 2
 offset_left = 1.0
 offset_top = -1.0
@@ -147,7 +147,7 @@ theme_override_fonts/font = ExtResource("2_rhbcr")
 theme_override_font_sizes/font_size = 16
 text = "Sell"
 
-[node name="Button" type="Button" parent="VBoxContainer/Stock3/Sell"]
+[node name="SellButton" type="Button" parent="VBoxContainer/Stock3/Sell"]
 offset_left = 1.0
 offset_top = -1.0
 offset_right = 57.0
@@ -161,8 +161,13 @@ size_flags_horizontal = 3
 width = 5.0
 
 [node name="Timer" type="Timer" parent="."]
-autostart = true
 
+[connection signal="pressed" from="VBoxContainer/Stock1/Buy/BuyButton" to="VBoxContainer/Stock1" method="_on_buy_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Stock1/Sell/SellButton" to="VBoxContainer/Stock1" method="_on_sell_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Stock2/Buy/BuyButton" to="VBoxContainer/Stock2" method="_on_buy_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Stock2/Sell/SellButton" to="VBoxContainer/Stock2" method="_on_sell_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Stock3/Buy/BuyButton" to="VBoxContainer/Stock3" method="_on_buy_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Stock3/Sell/SellButton" to="VBoxContainer/Stock3" method="_on_sell_button_pressed"]
 [connection signal="timeout" from="Timer" to="VBoxContainer/Stock1" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="VBoxContainer/Stock2" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="VBoxContainer/Stock3" method="_on_timer_timeout"]
