@@ -85,6 +85,31 @@ position = Vector2(432, 232)
 scale = Vector2(4.0493, 3.62921)
 texture = ExtResource("2_klxch")
 
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+z_index = 7
+position = Vector2(-4.22913, -77.9095)
+scale = Vector2(0.0620418, 0.0692233)
+texture = ExtResource("4_rraej")
+
+[node name="Label" type="Label" parent="Sprite2D/Sprite2D2"]
+z_index = 7
+anchors_preset = -1
+anchor_left = -0.000645058
+anchor_top = -0.000909375
+anchor_right = 0.584322
+anchor_bottom = 0.315267
+offset_left = 123.395
+offset_top = -75.629
+offset_right = 270.395
+offset_bottom = -22.629
+theme_override_fonts/font = ExtResource("3_usn78")
+theme_override_font_sizes/font_size = 80
+text = "60.00s"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
 [node name="Button1" type="Node2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 script = ExtResource("3_lhbm0")
@@ -253,23 +278,6 @@ animation = &"correct"
 [node name="Timer" type="Timer" parent="."]
 wait_time = 60.0
 autostart = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Timer"]
-position = Vector2(558.875, 42.25)
-scale = Vector2(0.251226, 0.251226)
-texture = ExtResource("4_rraej")
-
-[node name="Label" type="Label" parent="Timer"]
-offset_left = 589.875
-offset_top = 23.25
-offset_right = 736.875
-offset_bottom = 76.25
-theme_override_fonts/font = ExtResource("3_usn78")
-theme_override_font_sizes/font_size = 24
-text = "60.00s"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="Label" type="Label" parent="."]
 offset_right = 904.0

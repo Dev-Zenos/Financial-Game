@@ -26,17 +26,18 @@ func _on_area_2d_body_entered(body):
 
 
 var active_instance = null  # To track the instance
+var qDone = false
 
 func _on_narrator_narrator_done(done):
+	if(qDone):
+		return;
 	if done != "narrator3":
 		return
 
 	# Instance the new scene
-	var instance = sceneTwo.instantiate()
-	active_instance = instance  # Keep track of the instance
 
 	# Set parameters for the instance if needed
-	instance.set_parameter(
+	$"../Player/QuestionsPage".set_parameter(
 		"To be ready for emergencies or big costs",
 		"So you can show off",
 		"To be ready for emergencies or big costs",
@@ -49,16 +50,11 @@ func _on_narrator_narrator_done(done):
 	# Add the instance as a child to the root or the current scene
 
 	# Optionally hide the current scene instead of freeing it
-	self.visible = false
-	$"..".visible = false
-	get_tree().root.add_child(instance)
-	instance.visible = true;
-	
-func remove_instance():
-	if active_instance:
-		active_instance.queue_free()  # Free the instance
-		active_instance = null
-		self.visible = true  # Show the original scene again
+
+func onDone():
+	qDone = true;
+	narrator.say(["nice", "more text"], "narrator3")
+	$"../Player".addCoin(50)
 	
 
 

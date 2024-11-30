@@ -12,17 +12,21 @@ func set_parameter(value, option1, option2, option3, option4, question, bob):
 	$Button4/Button4/Label .text = option4
 	$Label.text = question
 	print("Received parameter: ", parameter)
+	self.visible = true;
+	$"..".locked = true;
 
 func checkAnswer(ans) -> bool: 
-	var boolean = (ans == parameter)
-	if(boolean):
-		await get_tree().create_timer(5.0).timeout
-		finalScene.remove_instance()
+	var boolean = (ans == parameter);
 	return boolean;
-
+	
+func question_done():
+	print("done")
+	self.visible = false;
+	$"..".locked = false;
+	finalScene.onDone()
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass;
+	self.visible = false;
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,5 +36,5 @@ func _process(delta):
 	var floatTimer = time/10.0;
 	if(floatTimer == int(floatTimer)):
 		floatTimer = str(floatTimer) + ".0"
-	if((str(floatTimer) + "s") != $Timer/Label.text):
-		$Timer/Label.text = (str(floatTimer) + "s")
+	if((str(floatTimer) + "s") != $Sprite2D/Sprite2D2/Label.text):
+		$Sprite2D/Sprite2D2/Label.text = (str(floatTimer) + "s")

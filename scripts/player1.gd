@@ -5,12 +5,21 @@ const SPEED = 60.0
 const JUMP_VELOCITY = -75.0
 
 
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var gravityOn = false
+var coins = 1000;
 var locked = false
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
+func addCoin(num):
+	coins += num;
+	$CoinCounter.get_node("Label").text = coins
+	
+func removeCoin(num):
+	coins -= num;
+	$CoinCounter.get_node("Label").text = coins
 
 func _physics_process(delta):
 	if(locked):
