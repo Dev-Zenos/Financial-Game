@@ -10,14 +10,14 @@ func _ready():
 func _process(delta):
 	pass
 
-var stock_name = "EGG"
+var stock_name = "Cutlass Cargo Co"
 var value = 100.0
 var stock_count = 50
 var trend_data = [5, 1]
 
 @onready var value_label = $Counter
-@onready var buy_button = $Buy/Button
-@onready var sell_button = $Sell/Button
+@onready var buy_button = $Buy/BuyButton
+@onready var sell_button = $Sell/SellButton
 @onready var graph_line = $graph/Line2D
 
 var graph_height = 212
@@ -25,6 +25,7 @@ var max_stock_value = 150.0  # Replace with the highest expected stock value
 var scale_factor = graph_height / max_stock_value
 
 func update_ui():
+	$Name.text = stock_name
 	value_label.text = " $" + str(round(value)) + "(" + str(stock_count) + " owned)"
 	sell_button.disabled = stock_count <= 0
 	buy_button.disabled = false # Adjust based on player inventory
@@ -42,7 +43,7 @@ func buy_stock():
 
 func update_trend():
 	trend_data.append(value)
-	if trend_data.size() > 80:
+	if trend_data.size() > 60:
 		trend_data.pop_front()
 
 func update_stock_prices():
