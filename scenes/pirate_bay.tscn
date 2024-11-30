@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://oh1oqmeju3"]
+[gd_scene load_steps=17 format=3 uid="uid://oh1oqmeju3"]
 
 [ext_resource type="Texture2D" uid="uid://cvjxy2itsgvhp" path="res://Game Assets/Monochrome Pirates by Kenney/Default/Tilemap/tilemap_packed.png" id="1_aejnn"]
 [ext_resource type="Texture2D" uid="uid://bdnwyop6rg67k" path="res://Game Assets/Monochrome Pirates by Kenney/tile2.jpg" id="2_lu1xg"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bs0ceicyxh6ov" path="res://scenes/coin_counter.tscn" id="6_byim5"]
 [ext_resource type="PackedScene" uid="uid://bnluu3gl2lhf7" path="res://scenes/questions_page.tscn" id="7_wpf0n"]
 [ext_resource type="PackedScene" uid="uid://bfhjdf823k2lm" path="res://scenes/boat.tscn" id="8_ma117"]
+[ext_resource type="PackedScene" uid="uid://tsg4o4t8ctdp" path="res://scenes/invest.tscn" id="8_vicpa"]
 [ext_resource type="PackedScene" uid="uid://dhi2ew4dnrmue" path="res://scenes/npc_2.tscn" id="10_nyx66"]
 [ext_resource type="PackedScene" uid="uid://b4f8mmk0glaks" path="res://scenes/npc_3.tscn" id="11_2q63n"]
 
@@ -337,12 +338,18 @@ horizontal_alignment = 1
 autowrap_mode = 3
 
 [node name="CoinCounter" parent="Player" instance=ExtResource("6_byim5")]
+z_index = 12
 position = Vector2(92, -67)
 
 [node name="QuestionsPage" parent="Player" instance=ExtResource("7_wpf0n")]
 visible = false
 z_index = 5
 position = Vector2(-107, -60)
+scale = Vector2(0.26, 0.26)
+
+[node name="Invest" parent="Player" instance=ExtResource("8_vicpa")]
+visible = false
+position = Vector2(-144, -81)
 scale = Vector2(0.26, 0.26)
 
 [node name="Captain" parent="." instance=ExtResource("5_tw70m")]
@@ -360,4 +367,7 @@ position = Vector2(136, -88)
 [node name="npc_3" parent="." instance=ExtResource("11_2q63n")]
 position = Vector2(-248, -120)
 
+[connection signal="narrator_done" from="Player/narrator" to="npc2" method="_on_narrator_narrator_done"]
 [connection signal="narrator_done" from="Player/narrator" to="npc_3" method="_on_narrator_narrator_done"]
+[connection signal="add_coin" from="Player/Invest" to="Player" method="_on_invest_add_coin"]
+[connection signal="remove_coin" from="Player/Invest" to="Player" method="_on_invest_remove_coin"]

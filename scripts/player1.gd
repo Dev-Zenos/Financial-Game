@@ -15,11 +15,11 @@ var locked = false
 
 func addCoin(num):
 	coins += num;
-	$CoinCounter.get_node("Label").text = coins
+	$CoinCounter.get_node("Label").text = str(coins)
 	
 func removeCoin(num):
 	coins -= num;
-	$CoinCounter.get_node("Label").text = coins
+	$CoinCounter.get_node("Label").text = str(coins)
 
 func _physics_process(delta):
 	if(locked):
@@ -64,3 +64,11 @@ func _physics_process(delta):
 	
 
 	move_and_slide()
+
+
+func _on_invest_add_coin(num):
+	addCoin(num)
+
+
+func _on_invest_remove_coin(num):
+	removeCoin(num)

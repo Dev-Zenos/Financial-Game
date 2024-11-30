@@ -3,6 +3,7 @@ extends HBoxContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	updateTOOMUCH()
 	update_ui() # Replace with function body.
 
 
@@ -11,8 +12,8 @@ func _process(delta):
 	pass
 
 var stock_name = "Golden Doubloon Ventures"
-var value = 100.0
-var stock_count = 50
+var value = 125.0
+var stock_count = 0
 var trend_data = [5, 1]
 
 @onready var value_label = $Counter
@@ -27,23 +28,23 @@ var scale_factor = graph_height / max_stock_value
 func update_ui():
 	$Name.text = stock_name
 	value_label.text = " $" + str(round(value)) + "(" + str(stock_count) + " owned)"
-	sell_button.disabled = stock_count <= 0
-	buy_button.disabled = false # Adjust based on player inventory
 
 func sell_stock():
 	if stock_count > 0:
 		stock_count -= 1
 		# Deduct player money and add stock
+	$"../..".add(round(value))
 	update_ui()
 
 func buy_stock():
 	stock_count += 1
 	# Add player money and deduct stock
+	$"../..".remove(round(value)) #bug can buy even if u got negative shit
 	update_ui()
 
 func update_trend():
 	trend_data.append(value)
-	if trend_data.size() > 55:
+	if trend_data.size() > 40:
 		trend_data.pop_front()
 
 func update_stock_prices():
@@ -73,12 +74,14 @@ func update_graph():
 
 
 func _on_timer_timeout():
+	updateTOOMUCH()
+
+func updateTOOMUCH():
 	update_stock_prices()
 	update_trend()
 	update_graph()
 	update_ui()
 	print("New Stock2 Price: " + str(value))
-
 
 func _on_buy_button_pressed():
 	buy_stock()
