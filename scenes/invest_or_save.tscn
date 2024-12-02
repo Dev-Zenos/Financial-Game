@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://by7kgkahc553r"]
+
+[ext_resource type="Script" path="res://scripts/invest_or_save.gd" id="1_mvxiu"]
+[ext_resource type="Texture2D" uid="uid://bryrybrvcwufk" path="res://Game Assets/bigboi.png" id="1_wl5pg"]
+[ext_resource type="Texture2D" uid="uid://6jc1fpc3ioyy" path="res://Game Assets/ngfjkd.png" id="2_dyh3k"]
+[ext_resource type="Texture2D" uid="uid://1muomqvqktj0" path="res://Game Assets/savings.png" id="3_6qj4f"]
+[ext_resource type="FontFile" uid="uid://cckoau3dy7sf4" path="res://Game Assets/narrator/PixelOperator8-Bold.ttf" id="4_41wdg"]
+[ext_resource type="Texture2D" uid="uid://do2s4mhi12e01" path="res://Game Assets/stockmarket.jpg" id="5_0gejd"]
+
+[node name="InvestORSave" type="Node2D"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+script = ExtResource("1_mvxiu")
+
+[node name="board" type="Sprite2D" parent="."]
+position = Vector2(580, 318)
+texture = ExtResource("1_wl5pg")
+
+[node name="Savings" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 24.0
+offset_top = 68.0
+offset_right = 539.0
+offset_bottom = 572.0
+
+[node name="Button" type="Sprite2D" parent="Savings"]
+position = Vector2(257, 252)
+scale = Vector2(1, 1.71389)
+texture = ExtResource("2_dyh3k")
+
+[node name="logo" type="Sprite2D" parent="Savings"]
+position = Vector2(257, 181)
+texture = ExtResource("3_6qj4f")
+
+[node name="Label" type="Label" parent="Savings"]
+offset_left = 234.0
+offset_top = 337.0
+offset_right = 274.0
+offset_bottom = 468.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_41wdg")
+theme_override_font_sizes/font_size = 64
+text = "Savings Account"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="StockMarket" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 622.0
+offset_top = 68.0
+offset_right = 1137.0
+offset_bottom = 572.0
+
+[node name="Button" type="Sprite2D" parent="StockMarket"]
+position = Vector2(257, 252)
+scale = Vector2(1, 1.71389)
+texture = ExtResource("2_dyh3k")
+
+[node name="logo" type="Sprite2D" parent="StockMarket"]
+position = Vector2(257, 187)
+texture = ExtResource("5_0gejd")
+
+[node name="Label" type="Label" parent="StockMarket"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 337.0
+offset_right = 274.0
+offset_bottom = 468.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_41wdg")
+theme_override_font_sizes/font_size = 64
+text = "Stock Market"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="Savings" to="." method="_on_savings_pressed"]
+[connection signal="pressed" from="StockMarket" to="." method="_on_stock_market_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://oh1oqmeju3"]
+[gd_scene load_steps=18 format=3 uid="uid://oh1oqmeju3"]
 
 [ext_resource type="Texture2D" uid="uid://cvjxy2itsgvhp" path="res://Game Assets/Monochrome Pirates by Kenney/Default/Tilemap/tilemap_packed.png" id="1_aejnn"]
 [ext_resource type="Texture2D" uid="uid://bdnwyop6rg67k" path="res://Game Assets/Monochrome Pirates by Kenney/tile2.jpg" id="2_lu1xg"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bnluu3gl2lhf7" path="res://scenes/questions_page.tscn" id="7_wpf0n"]
 [ext_resource type="PackedScene" uid="uid://bfhjdf823k2lm" path="res://scenes/boat.tscn" id="8_ma117"]
 [ext_resource type="PackedScene" uid="uid://tsg4o4t8ctdp" path="res://scenes/invest.tscn" id="8_vicpa"]
+[ext_resource type="PackedScene" uid="uid://by7kgkahc553r" path="res://scenes/invest_or_save.tscn" id="9_5fowb"]
 [ext_resource type="PackedScene" uid="uid://dhi2ew4dnrmue" path="res://scenes/npc_2.tscn" id="10_nyx66"]
 [ext_resource type="PackedScene" uid="uid://b4f8mmk0glaks" path="res://scenes/npc_3.tscn" id="11_2q63n"]
 
@@ -351,6 +352,11 @@ scale = Vector2(0.26, 0.26)
 visible = false
 position = Vector2(-144, -81)
 scale = Vector2(0.26, 0.26)
+
+[node name="InvestORSave" parent="Player" instance=ExtResource("9_5fowb")]
+visible = false
+position = Vector2(-128, -70)
+scale = Vector2(0.22, 0.22)
 
 [node name="Captain" parent="." instance=ExtResource("5_tw70m")]
 position = Vector2(8, -9)

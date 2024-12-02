@@ -33,7 +33,7 @@ func _on_narrator_narrator_done(done):
 		return;
 	if done != "narrator3":
 		return
-
+	$"../Player/CoinCounter".visible = false;
 	# Instance the new scene
 
 	# Set parameters for the instance if needed
@@ -54,6 +54,7 @@ func _on_narrator_narrator_done(done):
 func onDone():
 	qDone = true;
 	narrator.say(["nice", "more text"], "narrator3")
+	$"../Player/CoinCounter".visible = true;
 	$"../Player".addCoin(50)
 	
 

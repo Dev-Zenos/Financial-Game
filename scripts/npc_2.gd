@@ -19,11 +19,8 @@ func _process(delta):
 	if(done && entered && !$"../Player/Invest".visible):
 		if Input.is_action_just_pressed("click"):
 			$"../Player".locked = true
-			$"../Player/Invest".visible = true
+			$"../Player/InvestORSave".visible = true
 			$"../Player/Label".text = ""
-			if(!investStart):
-				$"../Player/Invest".get_node("Timer").start()
-				investStart = true
 
 
 func _on_area_2d_body_entered(body):
@@ -34,7 +31,7 @@ func _on_area_2d_body_entered(body):
 		narrator.say(arr, "narrator2")
 	else:
 		entered = true
-		body.get_node("Label").text = "Press Space to open Stock Market"
+		body.get_node("Label").text = "Press Space to open Selection Panel"
 
 
 
@@ -48,5 +45,7 @@ func _on_narrator_narrator_done(done):
 
 
 func _on_area_2d_body_exited(body):
+	if(body.name != "Player"):
+		return
 	entered = false
 	body.get_node("Label").text = ""
