@@ -322,11 +322,6 @@ layer_1/tile_data = PackedInt32Array(131077, 589824, 0, 131080, 917504, 5, 6, 10
 z_index = 5
 position = Vector2(14, -47)
 
-[node name="narrator" parent="Player" instance=ExtResource("4_s8fer")]
-texture_filter = 1
-position = Vector2(79, 57)
-scale = Vector2(0.253052, 0.253052)
-
 [node name="Label" type="Label" parent="Player"]
 offset_left = -131.0
 offset_top = 52.0
@@ -358,6 +353,11 @@ visible = false
 position = Vector2(-128, -70)
 scale = Vector2(0.22, 0.22)
 
+[node name="narrator" parent="Player" instance=ExtResource("4_s8fer")]
+texture_filter = 1
+position = Vector2(79, 57)
+scale = Vector2(0.253052, 0.253052)
+
 [node name="Captain" parent="." instance=ExtResource("5_tw70m")]
 position = Vector2(8, -9)
 
@@ -373,7 +373,7 @@ position = Vector2(136, -88)
 [node name="npc_3" parent="." instance=ExtResource("11_2q63n")]
 position = Vector2(-248, -120)
 
-[connection signal="narrator_done" from="Player/narrator" to="npc2" method="_on_narrator_narrator_done"]
-[connection signal="narrator_done" from="Player/narrator" to="npc_3" method="_on_narrator_narrator_done"]
 [connection signal="add_coin" from="Player/Invest" to="Player" method="_on_invest_add_coin"]
 [connection signal="remove_coin" from="Player/Invest" to="Player" method="_on_invest_remove_coin"]
+[connection signal="narrator_done" from="Player/narrator" to="npc2" method="_on_narrator_narrator_done"]
+[connection signal="narrator_done" from="Player/narrator" to="npc_3" method="_on_narrator_narrator_done"]

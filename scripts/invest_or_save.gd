@@ -5,14 +5,13 @@ var investStart = false;
 func _ready():
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
 
 func _on_savings_pressed():
-	pass # Replace with function body.
+	$"../narrator".say(["Hey this is a test", "bob"], "narrator1")
 
 
 func _on_stock_market_pressed():

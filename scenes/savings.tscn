@@ -1,0 +1,114 @@
+[gd_scene load_steps=15 format=3 uid="uid://choll63kq52d5"]
+
+[ext_resource type="Texture2D" uid="uid://bryrybrvcwufk" path="res://Game Assets/bigboi.png" id="1_rylg7"]
+[ext_resource type="Texture2D" uid="uid://cvl12vchuwrrc" path="res://Game Assets/saving bank/Sprite Sheet from Codeshack.png" id="2_fswpr"]
+[ext_resource type="FontFile" uid="uid://cckoau3dy7sf4" path="res://Game Assets/narrator/PixelOperator8-Bold.ttf" id="3_pf5gq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgnlh"]
+atlas = ExtResource("2_fswpr")
+region = Rect2(0, 0, 1400, 1400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icxyd"]
+atlas = ExtResource("2_fswpr")
+region = Rect2(1400, 0, 1400, 1400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_atvyd"]
+atlas = ExtResource("2_fswpr")
+region = Rect2(2800, 0, 1400, 1400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pyao"]
+atlas = ExtResource("2_fswpr")
+region = Rect2(4200, 0, 1400, 1400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y25s"]
+atlas = ExtResource("2_fswpr")
+region = Rect2(5600, 0, 1400, 1400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt70q"]
+atlas = ExtResource("2_fswpr")
+region = Rect2(7000, 0, 1400, 1400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3gip"]
+atlas = ExtResource("2_fswpr")
+region = Rect2(8400, 0, 1400, 1400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp8om"]
+atlas = ExtResource("2_fswpr")
+region = Rect2(9800, 0, 1400, 1400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drs5w"]
+atlas = ExtResource("2_fswpr")
+region = Rect2(11200, 0, 1400, 1400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_migog"]
+atlas = ExtResource("2_fswpr")
+region = Rect2(12600, 0, 1400, 1400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vfjjw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgnlh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icxyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_atvyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pyao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y25s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt70q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3gip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lp8om")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drs5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_migog")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Savings" type="Node2D"]
+
+[node name="board" type="Sprite2D" parent="."]
+position = Vector2(580, 318)
+texture = ExtResource("1_rylg7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(575, 222)
+scale = Vector2(0.234286, 0.234286)
+sprite_frames = SubResource("SpriteFrames_vfjjw")
+autoplay = "default"
+frame_progress = 0.68374
+
+[node name="Button" type="Button" parent="."]
+offset_left = 175.0
+offset_top = 506.0
+offset_right = 447.0
+offset_bottom = 585.0
+theme_override_fonts/font = ExtResource("3_pf5gq")
+theme_override_font_sizes/font_size = 32
+text = "Withdraw"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 711.0
+offset_top = 506.0
+offset_right = 983.0
+offset_bottom = 585.0
+theme_override_fonts/font = ExtResource("3_pf5gq")
+theme_override_font_sizes/font_size = 32
+text = "Deposit"

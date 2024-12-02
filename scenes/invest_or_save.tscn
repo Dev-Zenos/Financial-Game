@@ -32,6 +32,7 @@ position = Vector2(257, 181)
 texture = ExtResource("3_6qj4f")
 
 [node name="Label" type="Label" parent="Savings"]
+layout_mode = 0
 offset_left = 234.0
 offset_top = 337.0
 offset_right = 274.0
