@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://oh1oqmeju3"]
+[gd_scene load_steps=20 format=3 uid="uid://oh1oqmeju3"]
 
 [ext_resource type="Texture2D" uid="uid://cvjxy2itsgvhp" path="res://Game Assets/Monochrome Pirates by Kenney/Default/Tilemap/tilemap_packed.png" id="1_aejnn"]
 [ext_resource type="Texture2D" uid="uid://bdnwyop6rg67k" path="res://Game Assets/Monochrome Pirates by Kenney/tile2.jpg" id="2_lu1xg"]
@@ -9,9 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://c6yx0ydayhiqp" path="res://scenes/captain.tscn" id="5_tw70m"]
 [ext_resource type="PackedScene" uid="uid://bs0ceicyxh6ov" path="res://scenes/coin_counter.tscn" id="6_byim5"]
 [ext_resource type="PackedScene" uid="uid://bnluu3gl2lhf7" path="res://scenes/questions_page.tscn" id="7_wpf0n"]
+[ext_resource type="PackedScene" uid="uid://choll63kq52d5" path="res://scenes/savings.tscn" id="8_54ooi"]
 [ext_resource type="PackedScene" uid="uid://bfhjdf823k2lm" path="res://scenes/boat.tscn" id="8_ma117"]
 [ext_resource type="PackedScene" uid="uid://tsg4o4t8ctdp" path="res://scenes/invest.tscn" id="8_vicpa"]
 [ext_resource type="PackedScene" uid="uid://by7kgkahc553r" path="res://scenes/invest_or_save.tscn" id="9_5fowb"]
+[ext_resource type="PackedScene" uid="uid://dvudx3scvndf4" path="res://scenes/ship_parts.tscn" id="10_5ct7t"]
 [ext_resource type="PackedScene" uid="uid://dhi2ew4dnrmue" path="res://scenes/npc_2.tscn" id="10_nyx66"]
 [ext_resource type="PackedScene" uid="uid://b4f8mmk0glaks" path="res://scenes/npc_3.tscn" id="11_2q63n"]
 
@@ -268,10 +270,6 @@ texture = ExtResource("1_aejnn")
 14:5/0 = 0
 14:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:5/0/physics_layer_0/angular_velocity = 0.0
-15:0/size_in_atlas = Vector2i(1, 5)
-15:0/0 = 0
-15:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-15:0/0/physics_layer_0/angular_velocity = 0.0
 16:0/size_in_atlas = Vector2i(1, 5)
 16:0/0 = 0
 16:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -288,14 +286,18 @@ texture = ExtResource("1_aejnn")
 0:4/0 = 0
 0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:4/0/physics_layer_0/angular_velocity = 0.0
-9:4/size_in_atlas = Vector2i(5, 4)
-9:4/0 = 0
-9:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-9:4/0/physics_layer_0/angular_velocity = 0.0
 9:0/size_in_atlas = Vector2i(5, 4)
 9:0/0 = 0
 9:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:0/0/physics_layer_0/angular_velocity = 0.0
+9:4/size_in_atlas = Vector2i(5, 4)
+9:4/0 = 0
+9:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+9:4/0/physics_layer_0/angular_velocity = 0.0
+15:0/size_in_atlas = Vector2i(1, 5)
+15:0/0 = 0
+15:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+15:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hy0io"]
 texture = ExtResource("2_lu1xg")
@@ -348,10 +350,20 @@ visible = false
 position = Vector2(-144, -81)
 scale = Vector2(0.26, 0.26)
 
+[node name="Savings" parent="Player" instance=ExtResource("8_54ooi")]
+visible = false
+position = Vector2(-144, -81)
+scale = Vector2(0.26, 0.26)
+
 [node name="InvestORSave" parent="Player" instance=ExtResource("9_5fowb")]
 visible = false
 position = Vector2(-128, -70)
 scale = Vector2(0.22, 0.22)
+
+[node name="ship_parts" parent="Player" instance=ExtResource("10_5ct7t")]
+visible = false
+position = Vector2(-114, -53)
+scale = Vector2(0.2, 0.2)
 
 [node name="narrator" parent="Player" instance=ExtResource("4_s8fer")]
 texture_filter = 1

@@ -1,0 +1,226 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvudx3scvndf4"]
+
+[ext_resource type="Texture2D" uid="uid://bryrybrvcwufk" path="res://Game Assets/bigboi.png" id="1_sfbj3"]
+[ext_resource type="Script" path="res://scripts/ship_parts.gd" id="1_vvxer"]
+[ext_resource type="Texture2D" uid="uid://6jc1fpc3ioyy" path="res://Game Assets/ngfjkd.png" id="2_cbgsr"]
+[ext_resource type="FontFile" uid="uid://cckoau3dy7sf4" path="res://Game Assets/narrator/PixelOperator8-Bold.ttf" id="3_0itlg"]
+[ext_resource type="Texture2D" uid="uid://c27eltaqhmy2c" path="res://Game Assets/big boat.png" id="4_ntsg7"]
+[ext_resource type="Texture2D" uid="uid://c5nuhhul1q5hc" path="res://Game Assets/mast.png" id="5_ns1i3"]
+[ext_resource type="Texture2D" uid="uid://cdpu71uhulkfy" path="res://Game Assets/masts.png" id="6_c35is"]
+[ext_resource type="Texture2D" uid="uid://c4jrl2qubhrmv" path="res://Game Assets/close.png" id="7_bax0v"]
+
+[node name="ship_parts" type="Node2D"]
+script = ExtResource("1_vvxer")
+
+[node name="board" type="Sprite2D" parent="."]
+position = Vector2(580, 318)
+texture = ExtResource("1_sfbj3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 1161.0
+offset_bottom = 640.0
+size_flags_horizontal = 3
+
+[node name="Hull" type="Node2D" parent="VBoxContainer"]
+
+[node name="box" type="Sprite2D" parent="VBoxContainer/Hull"]
+position = Vector2(165.222, 122.25)
+scale = Vector2(0.554167, 0.554167)
+texture = ExtResource("2_cbgsr")
+
+[node name="name" type="Label" parent="VBoxContainer/Hull"]
+offset_left = 76.0
+offset_top = 11.0
+offset_right = 244.0
+offset_bottom = 59.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_0itlg")
+theme_override_font_sizes/font_size = 48
+text = "Hull"
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Hull"]
+position = Vector2(179, 122)
+scale = Vector2(2.29688, 2.29688)
+texture = ExtResource("4_ntsg7")
+
+[node name="price" type="Label" parent="VBoxContainer/Hull"]
+offset_left = 355.0
+offset_top = 59.0
+offset_right = 699.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_0itlg")
+theme_override_font_sizes/font_size = 32
+text = "Cost: $500 
+Level -  1"
+
+[node name="Hull_Upgrade" type="Button" parent="VBoxContainer/Hull"]
+offset_left = 347.0
+offset_top = 139.0
+offset_right = 627.0
+offset_bottom = 193.0
+theme_override_fonts/font = ExtResource("3_0itlg")
+theme_override_font_sizes/font_size = 32
+text = "Upgrade"
+
+[node name="risk" type="Label" parent="VBoxContainer/Hull"]
+offset_left = 700.0
+offset_top = 117.0
+offset_right = 1044.0
+offset_bottom = 184.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_0itlg")
+theme_override_font_sizes/font_size = 32
+text = "Risk = 99%"
+
+[node name="Sails" type="Node2D" parent="VBoxContainer"]
+position = Vector2(-2.08165e-12, 213)
+
+[node name="box" type="Sprite2D" parent="VBoxContainer/Sails"]
+position = Vector2(165.222, 122.25)
+scale = Vector2(0.554167, 0.554167)
+texture = ExtResource("2_cbgsr")
+
+[node name="name" type="Label" parent="VBoxContainer/Sails"]
+offset_left = 76.0
+offset_top = 11.0
+offset_right = 244.0
+offset_bottom = 59.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_0itlg")
+theme_override_font_sizes/font_size = 48
+text = "Sails"
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Sails"]
+position = Vector2(173, 121)
+scale = Vector2(1.89844, 1.89844)
+texture = ExtResource("5_ns1i3")
+
+[node name="price" type="Label" parent="VBoxContainer/Sails"]
+offset_left = 355.0
+offset_top = 59.0
+offset_right = 699.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_0itlg")
+theme_override_font_sizes/font_size = 32
+text = "Cost: $250
+Level -  1"
+
+[node name="Sails_Upgrade" type="Button" parent="VBoxContainer/Sails"]
+offset_left = 347.0
+offset_top = 139.0
+offset_right = 627.0
+offset_bottom = 193.0
+theme_override_fonts/font = ExtResource("3_0itlg")
+theme_override_font_sizes/font_size = 32
+text = "Upgrade"
+
+[node name="risk" type="Label" parent="VBoxContainer/Sails"]
+offset_left = 700.0
+offset_top = 117.0
+offset_right = 1044.0
+offset_bottom = 184.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_0itlg")
+theme_override_font_sizes/font_size = 32
+text = "Risk = 99%"
+
+[node name="Mast" type="Node2D" parent="VBoxContainer"]
+position = Vector2(-2.08165e-12, 430)
+
+[node name="box" type="Sprite2D" parent="VBoxContainer/Mast"]
+position = Vector2(165.222, 122.25)
+scale = Vector2(0.554167, 0.554167)
+texture = ExtResource("2_cbgsr")
+
+[node name="name" type="Label" parent="VBoxContainer/Mast"]
+offset_left = 68.0
+offset_top = 12.0
+offset_right = 260.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_0itlg")
+theme_override_font_sizes/font_size = 48
+text = "Mast"
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer/Mast"]
+position = Vector2(165, 123)
+scale = Vector2(2.35547, 2.35547)
+texture = ExtResource("6_c35is")
+
+[node name="price" type="Label" parent="VBoxContainer/Mast"]
+offset_left = 355.0
+offset_top = 59.0
+offset_right = 699.0
+offset_bottom = 105.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_0itlg")
+theme_override_font_sizes/font_size = 32
+text = "Cost: $100 
+Level -  1"
+
+[node name="mast_upgrade" type="Button" parent="VBoxContainer/Mast"]
+offset_left = 347.0
+offset_top = 139.0
+offset_right = 627.0
+offset_bottom = 193.0
+theme_override_fonts/font = ExtResource("3_0itlg")
+theme_override_font_sizes/font_size = 32
+text = "Upgrade"
+
+[node name="risk" type="Label" parent="VBoxContainer/Mast"]
+offset_left = 700.0
+offset_top = 117.0
+offset_right = 1044.0
+offset_bottom = 184.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_0itlg")
+theme_override_font_sizes/font_size = 32
+text = "Risk = 99%"
+
+[node name="totalrisk" type="Label" parent="."]
+offset_left = 595.0
+offset_top = 4.0
+offset_right = 1150.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_0itlg")
+theme_override_font_sizes/font_size = 40
+text = "Total Risk: 99%"
+
+[node name="go" type="Button" parent="."]
+offset_left = 862.0
+offset_top = 587.0
+offset_right = 1154.0
+offset_bottom = 641.0
+theme_override_colors/font_color = Color(0.878431, 0.0588235, 0.12549, 1)
+theme_override_fonts/font = ExtResource("3_0itlg")
+theme_override_font_sizes/font_size = 32
+text = "Sail Away!"
+
+[node name="close" type="Button" parent="."]
+offset_left = 1066.0
+offset_top = 68.0
+offset_right = 1143.0
+offset_bottom = 142.0
+
+[node name="Sprite2D" type="Sprite2D" parent="close"]
+z_index = 10
+position = Vector2(37.9062, 35.9062)
+scale = Vector2(0.160375, 0.160375)
+texture = ExtResource("7_bax0v")
+
+[connection signal="pressed" from="VBoxContainer/Hull/Hull_Upgrade" to="." method="_on_hull_upgrade_pressed"]
+[connection signal="pressed" from="VBoxContainer/Sails/Sails_Upgrade" to="." method="_on_sails_upgrade_pressed"]
+[connection signal="pressed" from="VBoxContainer/Mast/mast_upgrade" to="." method="_on_mast_upgrade_pressed"]
+[connection signal="pressed" from="go" to="." method="_on_go_pressed"]
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]

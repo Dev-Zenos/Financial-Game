@@ -1,8 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://choll63kq52d5"]
+[gd_scene load_steps=20 format=3 uid="uid://choll63kq52d5"]
 
+[ext_resource type="Script" path="res://scripts/savings.gd" id="1_8jc6w"]
 [ext_resource type="Texture2D" uid="uid://bryrybrvcwufk" path="res://Game Assets/bigboi.png" id="1_rylg7"]
 [ext_resource type="Texture2D" uid="uid://cvl12vchuwrrc" path="res://Game Assets/saving bank/Sprite Sheet from Codeshack.png" id="2_fswpr"]
 [ext_resource type="FontFile" uid="uid://cckoau3dy7sf4" path="res://Game Assets/narrator/PixelOperator8-Bold.ttf" id="3_pf5gq"]
+[ext_resource type="Script" path="res://scripts/save_panel.gd" id="5_7v5py"]
+[ext_resource type="Texture2D" uid="uid://6jc1fpc3ioyy" path="res://Game Assets/ngfjkd.png" id="5_meso4"]
+[ext_resource type="Script" path="res://scripts/LineEdit.gd" id="6_krns1"]
+[ext_resource type="Texture2D" uid="uid://c4jrl2qubhrmv" path="res://Game Assets/close.png" id="8_raur2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pgnlh"]
 atlas = ExtResource("2_fswpr")
@@ -83,6 +88,7 @@ animations = [{
 }]
 
 [node name="Savings" type="Node2D"]
+script = ExtResource("1_8jc6w")
 
 [node name="board" type="Sprite2D" parent="."]
 position = Vector2(580, 318)
@@ -95,7 +101,7 @@ sprite_frames = SubResource("SpriteFrames_vfjjw")
 autoplay = "default"
 frame_progress = 0.68374
 
-[node name="Button" type="Button" parent="."]
+[node name="Withdraw" type="Button" parent="."]
 offset_left = 175.0
 offset_top = 506.0
 offset_right = 447.0
@@ -104,7 +110,7 @@ theme_override_fonts/font = ExtResource("3_pf5gq")
 theme_override_font_sizes/font_size = 32
 text = "Withdraw"
 
-[node name="Button2" type="Button" parent="."]
+[node name="Deposit" type="Button" parent="."]
 offset_left = 711.0
 offset_top = 506.0
 offset_right = 983.0
@@ -112,3 +118,76 @@ offset_bottom = 585.0
 theme_override_fonts/font = ExtResource("3_pf5gq")
 theme_override_font_sizes/font_size = 32
 text = "Deposit"
+
+[node name="Balance" type="Label" parent="."]
+offset_left = 384.0
+offset_top = 401.0
+offset_right = 780.0
+offset_bottom = 433.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_pf5gq")
+theme_override_font_sizes/font_size = 32
+text = "Balance $0"
+
+[node name="Intrest" type="Label" parent="."]
+offset_left = 220.0
+offset_top = 441.0
+offset_right = 1009.0
+offset_bottom = 473.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_pf5gq")
+theme_override_font_sizes/font_size = 24
+text = "Intrest Rate: 0.5% (next tick in 60s)"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+
+[node name="panel" type="Node2D" parent="."]
+visible = false
+script = ExtResource("5_7v5py")
+
+[node name="Button" type="Sprite2D" parent="panel"]
+position = Vector2(577, 310)
+scale = Vector2(0.953403, 1.18368)
+texture = ExtResource("5_meso4")
+
+[node name="LineEdit" type="LineEdit" parent="panel"]
+offset_left = 368.0
+offset_top = 242.0
+offset_right = 793.0
+offset_bottom = 302.0
+theme_override_fonts/font = ExtResource("3_pf5gq")
+theme_override_font_sizes/font_size = 32
+placeholder_text = "$XXXXX"
+alignment = 1
+max_length = 5
+script = ExtResource("6_krns1")
+
+[node name="ok" type="Button" parent="panel"]
+offset_left = 450.0
+offset_top = 386.0
+offset_right = 710.0
+offset_bottom = 427.0
+theme_override_fonts/font = ExtResource("3_pf5gq")
+theme_override_font_sizes/font_size = 32
+text = "Withdraw"
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 0.968627, 1, 1)
+offset_left = 26.0
+offset_top = 15.0
+offset_right = 130.0
+offset_bottom = 114.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Button"]
+z_index = 10
+position = Vector2(51.4062, 49.4063)
+scale = Vector2(0.214375, 0.214375)
+texture = ExtResource("8_raur2")
+
+[connection signal="pressed" from="Withdraw" to="." method="_on_withdraw_pressed"]
+[connection signal="pressed" from="Deposit" to="." method="_on_deposit_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="text_changed" from="panel/LineEdit" to="panel/LineEdit" method="_on_text_changed"]
+[connection signal="pressed" from="panel/ok" to="panel" method="_on_ok_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

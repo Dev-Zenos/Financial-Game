@@ -1,6 +1,7 @@
 extends Node2D
 
 var investStart = false;
+var savingStart = false;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -11,7 +12,11 @@ func _process(delta):
 
 
 func _on_savings_pressed():
-	$"../narrator".say(["Hey this is a test", "bob"], "narrator1")
+	self.visible = false;
+	$"../Savings".visible = true;
+	if(!savingStart):
+		$"../Savings".get_node("Timer").start()
+		savingStart = true
 
 
 func _on_stock_market_pressed():

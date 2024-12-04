@@ -10,6 +10,16 @@ func set_parameter(value, option1, option2, option3, option4, question, bob):
 	$Button2/Button2/Label.text = option2
 	$Button3/Button3/Label.text = option3
 	$Button4/Button4/Label .text = option4
+	
+	$Button1/AnimatedSprite2D.visible = false;
+	$Button2/AnimatedSprite2D.visible = false;
+	$Button3/AnimatedSprite2D.visible = false;
+	$Button4/AnimatedSprite2D.visible = false;
+	
+	$Timer.stop()
+	$Timer.wait_time = 60.0  
+	$Timer.start()   
+	
 	$Label.text = question
 	print("Received parameter: ", parameter)
 	self.visible = true;
