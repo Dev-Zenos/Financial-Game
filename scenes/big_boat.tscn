@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://nokyur7tr7qx"]
+
+[ext_resource type="Script" path="res://scenes/big_boat.gd" id="1_akbpg"]
+[ext_resource type="Texture2D" uid="uid://5q3dtnkc53hb" path="res://Game Assets/broken_boat.png" id="1_vepdj"]
+[ext_resource type="Texture2D" uid="uid://di6o0lcs1i1wk" path="res://Game Assets/fixed_boat.png" id="2_nits8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3o28"]
+atlas = ExtResource("1_vepdj")
+region = Rect2(0, 0, 80, 123)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3odhh"]
+atlas = ExtResource("2_nits8")
+region = Rect2(0, 0, 80, 139)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e7wga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3o28")
+}],
+"loop": true,
+"name": &"broken_boat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3odhh")
+}],
+"loop": true,
+"name": &"fixed_boat",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prvff"]
+size = Vector2(82, 132)
+
+[node name="Big_Boat" type="Node2D"]
+script = ExtResource("1_akbpg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e7wga")
+animation = &"fixed_boat"
+autoplay = "fixed_boat"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.01
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_prvff")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

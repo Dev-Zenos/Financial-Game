@@ -13,7 +13,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(done && entered && !$"../Player/ship_parts".visible):
+	if(done && entered && !$"../Player/ship_parts".visible && !$"../Big_Boat".moving):
 		if Input.is_action_just_pressed("click"):
 			$"../Player".locked = true
 			$"../Player/ship_parts".visible = true;

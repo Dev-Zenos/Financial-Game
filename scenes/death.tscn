@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b65j1f4wet61u"]
+
+[ext_resource type="Script" path="res://scripts/death.gd" id="1_7hso7"]
+[ext_resource type="Texture2D" uid="uid://bj8vm5u5t584i" path="res://Game Assets/death.jpg" id="1_ykr4a"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grjl7"]
+radius = 6.0
+height = 102.0
+
+[node name="death" type="Node2D"]
+script = ExtResource("1_7hso7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+texture = ExtResource("1_ykr4a")
+
+[node name="Area2D" type="Area2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_grjl7")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

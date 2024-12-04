@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 60.0
 const JUMP_VELOCITY = -75.0
+var dead = false;
 
 
 
@@ -24,8 +25,15 @@ func removeCoin(num):
 func getCoins() -> int:
 	return int(coins)
 	
+func die():
+	print("death")
+	dead = true
+	animated_sprite_2d.play("death")
+	
 
 func _physics_process(delta):
+	if(dead):
+		return
 	if(locked):
 		animated_sprite_2d.play("idle")
 		return

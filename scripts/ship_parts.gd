@@ -86,4 +86,5 @@ func _on_mast_upgrade_pressed():
 
 
 func _on_go_pressed():
-	$"../narrator".say(["Geat Job you left...idk i will add a animation/cut scene here"], "narrator1")
+	self.visible = false;
+	$"../../Big_Boat".go()
