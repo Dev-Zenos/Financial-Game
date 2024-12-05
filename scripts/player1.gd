@@ -10,7 +10,7 @@ var dead = false;
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var gravityOn = false
-var coins = 10000;
+var coins = 1000;
 var locked = false
 @onready var animated_sprite_2d = $AnimatedSprite2D
 

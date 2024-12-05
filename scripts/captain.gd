@@ -32,3 +32,10 @@ func _on_area_2d_body_entered(body):
 	else:
 		entered = true
 		body.get_node("Label").text = "Press Space to open Ship Parts Panel"
+
+
+func _on_area_2d_body_exited(body):
+	if(body.name != "Player"):
+		return
+	entered = false
+	body.get_node("Label").text = ""

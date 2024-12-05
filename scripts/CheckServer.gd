@@ -1,7 +1,7 @@
 extends HTTPRequest
 
 
-@onready var sceneTwo = preload("res://scenes/start_page.tscn")
+@onready var sceneTwo = preload("res://scenes/pirate_bay.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	request_completed.connect(_on_request_completed)
